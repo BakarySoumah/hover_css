@@ -1,0 +1,75 @@
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #131416;
+    padding: 50px;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 120px 120px;
+    width: 100%;
+    max-width: 1200px;
+    grid-gap: 24px;
+}
+@media (min-width: 540px) {
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+@media (min-width: 960px) {
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+  
+}
+.card{
+    position: relative;
+    padding-bottom: 150%;
+}
+.card-gb{
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* permette de faire des animations et des filtres */
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    transform-origin: center;
+    transition: .2s;
+}
+.card:hover .card-gb{
+    transform: scale(1.05) translateY(0);
+}
+
+/* permettant de masquer les autres cartes */
+.container:hover > .card:not(:hover) .card-gb {
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card-content {
+    padding: 24px;
+    position: absolute;
+    font-family: fantasy;
+}
+
+.card-content p{
+    color: rgba(255, 255, 255, .6);
+    font-size: .9rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card-content h3{
+    color: rgba(10, 10, 10, 0.9);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+}
